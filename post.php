@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>一言掲示板 - 投稿</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1>💬 一言掲示板</h1>
-    <form action="post.php" method="post">
-        <p>名前：<input type="text" name="name" required></p>
-        <p>コメント：<br>
-        <textarea name="comment" rows="4" cols="40" required></textarea></p>
-        <p><button type="submit">投稿する</button></p>
-    </form>
-    <p><a href="view.php">▶ 投稿一覧を見る</a></p>
-</body>
-</html>
+<?php
+$name = htmlspecialchars($_POST['name'] ?? '名無し');
+$comment = htmlspecialchars($_POST['comment'] ?? '');
+$time = date('Y-m-d H:i:s');
+
+if (trim($comment) === '') {
+    header("Location: form.php");
+    exit;
+}
+
+$entry = "$time\t$name\t$comment\n";
+file_put_contents('comments.txt', $entry, FILE_APPEND);
+header("Location: view.php");
+exit;
+?>
