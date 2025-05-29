@@ -1,3 +1,20 @@
+<?php
+    require_once '../ryoutoku/connectDB.php';
+    if($_POST['username'] && $_POST['password']){
+        $pdo = connectDB();
+        $sql='SELECT user_name,id FROM user WHERE user_name = ? AND id = ?';
+        $stmt=$pdo->prepare($sql);
+        $stmt->execute([$_POST['mail'], $_POST['pass']]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        if(!empty($result)){
+            session_start();
+            $_SESSION['id'] = $result['user_id'];
+            $_SESSION['name'] = $result['user_name'];
+        }else{
+            header('Location: login.php');
+        }
+    }   
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -16,4 +33,3 @@
     <p><a href="view.php">▶ 投稿一覧を見る</a></p>
 </body>
 </html>
-りょうとく
