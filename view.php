@@ -13,7 +13,7 @@
     <hr>
     <?php
     require_once 'connectDB.php';
-    $pdo = connectDB_local();
+    $pdo = connectDB();
 
     // データベースからコメントを取得
     $stmt = $pdo->query("SELECT user_name, content, A.created_at FROM comment A, user B WHERE A.user_id = B.id ORDER BY created_at DESC");

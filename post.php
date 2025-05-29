@@ -1,7 +1,7 @@
 <?php
 session_Start();
 require_once 'connectDB.php';
-$pdo = connectDB_local();
+$pdo = connectDB();
 
 $name = htmlspecialchars($_POST['name'] ?? '名無し');
 $comment = htmlspecialchars($_POST['comment'] ?? '');
@@ -15,8 +15,8 @@ if (trim($comment) === '') {
 $stmt = $pdo->prepare("INSERT INTO comment (user_id, content) VALUES (?, ?)");
 $stmt->execute([$_SESSION['id'], $comment]);
 
-$entry = "$time\t$name\t$comment\n";
-file_put_contents('comments.txt', $entry, FILE_APPEND);
-header("Location: view.php");
+// $entry = "$time\t$name\t$comment\n";
+// file_put_contents('comments.txt', $entry, FILE_APPEND);
+// header("Location: view.php");
 exit;
 ?>
