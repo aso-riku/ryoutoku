@@ -17,6 +17,7 @@ $stmt->execute([$_SESSION['id'], $comment]);
 
 // $entry = "$time\t$name\t$comment\n";
 // file_put_contents('comments.txt', $entry, FILE_APPEND);
-// header("Location: view.php");
+
+header("Location: view.php");
 exit;
 ?>
