@@ -1,4 +1,5 @@
 <?php
+session_Start();
 require_once 'connectDB.php';
 $pdo = connectDB_local();
 
@@ -12,7 +13,7 @@ if (trim($comment) === '') {
 }
 
 $stmt = $pdo->prepare("INSERT INTO comment (user_id, content) VALUES (?, ?)");
-$stmt->execute([$name, $comment]);
+$stmt->execute([$_SESSION['id'], $comment]);
 
 $entry = "$time\t$name\t$comment\n";
 file_put_contents('comments.txt', $entry, FILE_APPEND);
