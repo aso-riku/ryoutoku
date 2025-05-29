@@ -24,8 +24,8 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <?= $_SESSION['id']. $_SESSION['name'] ? "<p>ようこそ、{$_SESSION['name']}さん！</p>" : '' ?>
     <h1>💬 一言掲示板</h1>
+    <?= $_SESSION['id']. $_SESSION['name'] ? "<p>ようこそ、{$_SESSION['name']}さん！</p>" : '' ?>
     <form action="post.php" method="post">
         <p>コメント：<br>
         <textarea name="comment" rows="4" cols="40" required></textarea></p>
