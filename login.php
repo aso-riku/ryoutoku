@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>ログイン</h1>
-    <form action="" method="post">
+    <form action="form.php" method="post">
     <p>
         ユーザー名：<input type="text" name="username"><br>
         パスワード：<input type="text" name="password"><br>
