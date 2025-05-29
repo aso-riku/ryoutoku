@@ -1,17 +1,18 @@
 <?php
+    session_start();
     require_once '../ryoutoku/connectDB.php';
-    if($_POST['username'] && $_POST['password']){
+    if(isset($_POST['username']) && isset($_POST['password'])){
         $pdo = connectDB_local();
-        $sql='SELECT user_name,id FROM user WHERE user_name = ? AND password = ?';
+        $sql='SELECT * FROM user WHERE user_name = ? AND password = ?';
         $stmt=$pdo->prepare($sql);
         $stmt->execute([$_POST['username'], $_POST['password']]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         if(!empty($result)){
-            session_start();
             $_SESSION['id'] = $result['id'];
             $_SESSION['name'] = $result['user_name'];
         }else{
             header('Location: login.php');
+            exit;
         }
     }   
 ?>
@@ -23,10 +24,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <?= $_SESSION['name'] ? "<p>ようこそ、{$_SESSION['name']}さん！</p>" : '' ?>
+    <?= $_SESSION['id']. $_SESSION['name'] ? "<p>ようこそ、{$_SESSION['name']}さん！</p>" : '' ?>
     <h1>💬 一言掲示板</h1>
     <form action="post.php" method="post">
-        <p>名前：<input type="text" name="name" required></p>
         <p>コメント：<br>
         <textarea name="comment" rows="4" cols="40" required></textarea></p>
         <p><button type="submit">投稿する</button></p>
