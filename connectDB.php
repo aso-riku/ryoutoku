@@ -15,7 +15,7 @@ function connectDB_local() {
     $dsn = 'mysql:host=localhost;
     dbname=ryoutoku;charset=utf8';
     $username = 'root';
-    $password = 'root';
+    $password = '';
 
     $pdo = new PDO($dsn, $username, $password);
     return $pdo;
