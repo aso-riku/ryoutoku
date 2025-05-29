@@ -3,6 +3,7 @@ session_Start();
 require_once 'connectDB.php';
 $pdo = connectDB_local();
 
+// テスト
 $name = htmlspecialchars($_POST['name'] ?? '名無し');
 $comment = htmlspecialchars($_POST['comment'] ?? '');
 $time = date('Y-m-d H:i:s');
