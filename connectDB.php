@@ -10,6 +10,7 @@ function connectDB() {
     return $pdo;
 }
 
+
 function connectDB_local() {
     $dsn = 'mysql:host=localhost;
     dbname=ryoutoku;charset=utf8';
