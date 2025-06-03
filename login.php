@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>ログイン</h1>
-    <form action="form.php" method="post">
+    <form action="check.php" method="post">
     <p>
         ユーザー名：<input type="text" name="username"><br>
         パスワード：<input type="text" name="password"><br>
