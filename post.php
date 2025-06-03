@@ -12,8 +12,8 @@ if (trim($comment) === '') {
     exit;
 }
 
-$stmt = $pdo->prepare("INSERT INTO comment (user_id, content) VALUES (?, ?)");
-$stmt->execute([$_SESSION['id'], $comment]);
+$stmt = $pdo->prepare("INSERT INTO comment (user_id, content, created_at) VALUES (?, ?)");
+$stmt->execute([$_SESSION['id'], $comment, $time]);
 
 // $entry = "$time\t$name\t$comment\n";
 // file_put_contents('comments.txt', $entry, FILE_APPEND);
