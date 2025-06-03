@@ -11,8 +11,8 @@
     <form action="check.php" method="post">
     <p>
         ユーザー名：<input type="text" name="username" value="daichi"><br>
-        パスワード：<input type="text" name="password" value="1111"><br>
-        <button type="submit" name="action" value="send">送信</button>
+        パスワード：<input type="text" name="password" value="1111"><br><br>
+        <button type="submit" name="action" value="send">ログイン</button>
 </form>
 </body>
 </html>
