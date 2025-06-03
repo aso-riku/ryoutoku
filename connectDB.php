@@ -18,5 +18,3 @@ function connectDB_local() {
     $pdo = new PDO($dsn, $username, $password);
     return $pdo;
 }
-
-?>  
