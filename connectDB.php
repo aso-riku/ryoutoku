@@ -1,5 +1,4 @@
 <?php
-
 function connectDB() {
     $dsn = 'mysql:host=mysql321.phy.lolipop.lan;
         dbname=LAA1595187-ryoutoku;charset=utf8';
